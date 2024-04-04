@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{user/base::layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<section>
+		
+		<div class="card mr-3 ml-3">
+			<div class="card-body">
+				<h1 class="text-center text-info mt-3">Update Contact</h1>
+				
+					<div class="container-fluid mt-1">
+						
+						<div class="row">
+							
+							<div class="col-md-8 offset-md-2">
+								
+								<form th:action="@{/user/processupdate}"
+									th:object="${contact}"
+									enctype="multipart/form-data"
+									method="POST"
+									class="mt-2"
+								>
+									
+									<!-- hidden field for cid -->
+									
+									<input type = "hidden" th:value="${contact.cid}" name="cid">
+									
+									<!-- hidden field end -->
+									
+									<!-- cname -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa far fa-id-card"></i>
+											</div>
+										</div>
+										<input th:value="${contact.cname}" type = "text" id="cname" name="cname" placeholder="Enter Name here" class="form-control" required>
+									</div>
+									<!-- cname end -->
+									<br>
+									<!-- cnickname -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-address-book"></i>
+											</div>
+										</div>
+										<input th:value="${contact.cnickname}" type = "text" id="cnickname" name="cnickname" placeholder="Enter Nick Name here" class="form-control" required>
+									</div>
+									<!-- cnickname end -->
+									<br>
+									<!-- cphone -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-phone-alt"></i>
+											</div>
+										</div>
+										<input th:value="${contact.cphone}" pattern="^[+]{1}(?:[0-9\-\(\)\/\.]\s?){6, 15}[0-9]{1}$" type = "tel" id="cphone" name="cphone" class="form-control" required>
+									</div>
+									<!-- cphone end -->
+									<br>
+									<!-- website -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-globe"></i>
+											</div>
+										</div>
+										<input th:value="${contact.cwebsite}" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" type = "text" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
+									</div>
+									<!-- website end -->
+									<br>
+									<!-- address unit number -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-map-marker-alt"></i>
+											</div>
+										</div>
+										<input th:value="${contact.caddressunit}" onkeypress="return onlyNumberKey(event)" maxlength=5 type = "text" id="caddressunit" name="caddressunit" placeholder="Enter Unit of Residence here" class="form-control" required>
+									</div>
+									<!-- address unite end -->
+									<br>
+									<!-- address civic number -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-building"></i>
+											</div>
+										</div>
+										<input th:value="${contact.caddresscivic}" type = "text" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
+									</div>
+									<!-- address civic number end -->
+									<br>
+									<!-- address street -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-street-view"></i>
+											</div>
+										</div>
+										<input th:value="${contact.caddressstreet}" type = "text" id="caddressstreet" name="caddressstreet" placeholder="Enter Address Street here" class="form-control" required>
+									</div>
+									<!-- address street end -->
+									<br>
+									<!-- address city -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-city"></i>
+											</div>
+										</div>
+										<input th:value="${contact.caddresscity}" type = "text" id="caddresscity" name="caddresscity" placeholder="Enter Address City here" class="form-control" required>
+									</div>
+									<!-- address city end -->
+									<br>
+									<div><span>Current Province: </span><span th:text="${contact.ccanadaprovince}"></span></div>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-location-arrow	"></i>
+											</div>
+										</div>
+										
+										<select class="form-control" id="ccanadaprovince" name="ccanadaprovince" required>
+											<option disabled selected value> -- select Province -- </option>
+											<option value="AB">Alberta</option>
+											<option value="BC">British Columbia</option>
+											<option value="MB">Manitoba</option>
+											<option value="NB">New Brunswick</option>
+											<option value="NL">Newfoundland and Labrador</option>
+											<option value="NS">Nova Scotia</option>
+											<option value="ON">Ontario</option>
+											<option value="PE">Prince Edward Island</option>
+											<option value="QC">Quebec</option>
+											<option value="SK">Saskatchewan</option>
+											<option value="NT">Northwest Territories</option>
+											<option value="NU">Nunavut</option>
+											<option value="YT">Yukon</option>
+										</select>
+									</div>
+									<br>
+									<!-- Pastal code -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-map-pin"></i>
+											</div>
+										</div>
+										<input th:value="${contact.cpostalcode}" type = "text" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" id="cpostalcode" name="cpostalcode" placeholder="Enter Postal Code here" class="form-control" required>
+									</div>
+									<!-- postal code end -->
+									<br>
+									<!-- cemail -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-envelope"></i>
+											</div>
+										</div>
+										<input th:value="${contact.cemail}" type = "text" id="cemail" name="cemail" placeholder="Enter Email Id here" class="form-control" required>
+									</div>
+									<!-- cemail end -->
+									<br>
+									<!-- cwork -->
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-briefcase"></i>
+											</div>
+										</div>
+										<input th:value="${contact.cwork}" type = "text" id="cwork" name="cwork" placeholder="Enter Work here" class="form-control" required>
+									</div>
+									<!-- cwork end -->
+									<br>
+									<!-- cdescription -->
+									<div class="form-group mt-3">
+										<textarea th:text="${contact.cdescription}" name="cdescription" id="mytextarea" class="form-control" rows="8" placeholder="Enter Contact Description"></textarea>
+									</div>
+									<!-- cdescription end -->
+									<br>
+									<!-- cimage -->
+									<div class="container text-center">
+										<img style="height:250px" class="img-fluid my_profile_pic" th:src = "@{'/image/'+${contact.cimage}}" alt=""> 
+									</div>
+									<p class="text-secondary">Choss new profile pic</p>
+									<div class="custom-file">
+									 	<input type = "file" name="cimage" >
+									</div>
+									<!-- cimage end -->
+									<br>
+									<div class="container text-center">
+										<button class="btn btn-outline-primary">Save Contact</button>
+									</div>
+								
+								</form>
+							
+							</div>
+						
+						</div>
+						
+					</div>
+				
+			</div>
+		</div>
+	</section>
+</body>
+</html>

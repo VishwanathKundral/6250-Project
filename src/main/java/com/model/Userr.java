@@ -29,6 +29,7 @@ public class Userr {
 	@Size(min=2,max=20,message="min 2 and max 20 characters are allowed")
 	private String uname;
 	private String upassword;
+	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", message="Invalid Email Format!")
 	@Column(unique = true)
 	private String uemail;
 	private String uimage;

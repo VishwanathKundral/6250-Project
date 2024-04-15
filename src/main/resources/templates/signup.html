@@ -40,7 +40,10 @@
 							<!-- email field -->
 						  <div class="form-group">
 						    <label for="uemail">Your Email</label>
-						    <input type="email" class="form-control" aria-describedby="emailHelp" name="uemail" th:value="${userr.uemail}" placeholder="Enter Your Email" required/>
+						    <input type="email" class="form-control" aria-describedby="emailHelp" name="uemail" th:value="${userr.uemail}" th:classappend="${#fields.hasErrors('uemail')}?'is-invalid'" placeholder="Enter Your Email" required/>
+							<div th:each="e:${#fields.errors('uemail')}" 
+			 				   th:text="${e}" class="invalid-feedback">
+			    			</div>
 							</div>
 							
 							<!-- password field -->

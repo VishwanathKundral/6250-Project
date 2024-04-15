@@ -27,7 +27,7 @@ public class Contact {
 	private String cpostalcode;
 	private String ccanadaprovince;
 	private String caddressstreet;
-	private int caddresscity;
+	private String caddresscity;
 	private int caddresscivic;
 	private String caddressunit;
 	private String cwebsite;
@@ -41,7 +41,7 @@ public class Contact {
 	private String cdescription;
 	
 	public Contact(String cname, String cnickname, String cwork, String cemail, String cphone, String cimage,
-			String cpostalcode, String ccanadaprovince, String caddressstreet, int caddresscity,
+			String cpostalcode, String ccanadaprovince, String caddressstreet, String caddresscity,
 			int caddresscivic, String caddressunit, String cwebsite, String cdescription, Userr userr) {
 		super();
 		this.cname = cname;
@@ -173,12 +173,12 @@ public class Contact {
 	}
 
 
-	public int getCaddresscity() {
+	public String getCaddresscity() {
 		return caddresscity;
 	}
 
 
-	public void setCaddresscity(int caddresscity) {
+	public void setCaddresscity(String caddresscity) {
 		this.caddresscity = caddresscity;
 	}
 

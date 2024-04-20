@@ -7,8 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -35,7 +33,6 @@ public class Contact {
 	@ManyToOne
 	@JsonIgnore // for search
 	private Userr userr;
-
 	
 	@Column(length = 100000)
 	private String cdescription;
@@ -61,11 +58,9 @@ public class Contact {
 		this.userr = userr;
 	}
 
-
 	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
-
 
 	@Override
 	public String toString() {
@@ -80,166 +75,133 @@ public class Contact {
 	public boolean equals(Object obj)                // use this when using orphanRemoval
 	{
 		return this.cid == ((Contact)obj).getCid();
-	}
-	
+	}	
 
 	public String getCname() {
 		return cname;
 	}
 
-
 	public void setCname(String cname) {
 		this.cname = cname;
 	}
-
 
 	public String getCnickname() {
 		return cnickname;
 	}
 
-
 	public void setCnickname(String cnickname) {
 		this.cnickname = cnickname;
 	}
-
 
 	public String getCwork() {
 		return cwork;
 	}
 
-
 	public void setCwork(String cwork) {
 		this.cwork = cwork;
 	}
-
 
 	public String getCemail() {
 		return cemail;
 	}
 
-
 	public void setCemail(String cemail) {
 		this.cemail = cemail;
 	}
-
 
 	public String getCphone() {
 		return cphone;
 	}
 
-
 	public void setCphone(String cphone) {
 		this.cphone = cphone;
 	}
-
 
 	public String getCimage() {
 		return cimage;
 	}
 
-
 	public void setCimage(String cimage) {
 		this.cimage = cimage;
 	}
-
 
 	public String getCpostalcode() {
 		return cpostalcode;
 	}
 
-
 	public void setCpostalcode(String cpostalcode) {
 		this.cpostalcode = cpostalcode;
 	}
-
 
 	public String getCcanadaprovince() {
 		return ccanadaprovince;
 	}
 
-
 	public void setCcanadaprovince(String ccanadaprovince) {
 		this.ccanadaprovince = ccanadaprovince;
 	}
-
 
 	public String getCaddressstreet() {
 		return caddressstreet;
 	}
 
-
 	public void setCaddressstreet(String caddressstreet) {
 		this.caddressstreet = caddressstreet;
 	}
-
 
 	public String getCaddresscity() {
 		return caddresscity;
 	}
 
-
 	public void setCaddresscity(String caddresscity) {
 		this.caddresscity = caddresscity;
 	}
-
 
 	public int getCaddresscivic() {
 		return caddresscivic;
 	}
 
-
 	public void setCaddresscivic(int caddresscivic) {
 		this.caddresscivic = caddresscivic;
 	}
-
 
 	public String getCaddressunit() {
 		return caddressunit;
 	}
 
-
 	public void setCaddressunit(String caddressunit) {
 		this.caddressunit = caddressunit;
 	}
-
 
 	public String getCwebsite() {
 		return cwebsite;
 	}
 
-
 	public void setCwebsite(String cwebsite) {
 		this.cwebsite = cwebsite;
 	}
-
 
 	public String getCdescription() {
 		return cdescription;
 	}
 
-
 	public void setCdescription(String cdescription) {
 		this.cdescription = cdescription;
 	}
-
 
 	public Userr getUserr() {
 		return userr;
 	}
 
-
 	public void setUserr(Userr userr) {
 		this.userr = userr;
 	}
-
 
 	public int getCid() {
 		return cid;
 	}
 
-
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
-
 }

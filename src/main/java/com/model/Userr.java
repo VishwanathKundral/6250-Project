@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -29,6 +30,7 @@ public class Userr {
 	@Size(min=2,max=20,message="min 2 and max 20 characters are allowed")
 	private String uname;
 	private String upassword;
+	@NotBlank(message = "Email field is required !")
 	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", message="Invalid Email Format!")
 	@Column(unique = true)
 	private String uemail;
@@ -44,8 +46,7 @@ public class Userr {
 	
 	public Userr() {
 
-	}
-	
+	}	
 
 	public Userr(int uid, String uname, String upassword, String uemail, String uimage, String uabout, String urole,
 			boolean uenabled, List<Contact> ucontacts) {
@@ -60,7 +61,6 @@ public class Userr {
 		this.uenabled = uenabled;
 		this.ucontacts = ucontacts;
 	}
-
 
 	public int getUid() {
 		return uid;
@@ -134,13 +134,10 @@ public class Userr {
 		this.ucontacts = ucontacts;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Userr [uid=" + uid + ", uname=" + uname + ", upassword=" + upassword + ", uemail=" + uemail
 				+ ", uimage=" + uimage + ", uabout=" + uabout + ", urole=" + urole + ", uenabled=" + uenabled
 				+ ", ucontacts=" + ucontacts + "]";
 	}
-
-
 }

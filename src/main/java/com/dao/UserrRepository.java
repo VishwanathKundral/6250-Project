@@ -6,14 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.model.Userr;
 
-
-
-
 public interface UserrRepository extends JpaRepository<Userr, Integer> {
-
 	@Query("select u from Userr u where u.uemail = :uemail")
-	public Userr getUserrByUserrName(@Param("uemail")String uemail);
-	
-	
+	public Userr getUserrByUserrName(@Param("uemail")String uemail);	
 }
-

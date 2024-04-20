@@ -6,12 +6,10 @@ public class Message {
 	private String type;
 	
 	public Message() {
-		super();
-		
+		super();		
 	}
 
 	public Message(String content, String type) {
-
 		this.content = content;
 		this.type = type;
 	}
@@ -31,8 +29,4 @@ public class Message {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	
-	
-
 }

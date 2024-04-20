@@ -2,7 +2,6 @@ package com.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.spi.LoggerFactoryBinder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -39,7 +38,6 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 		daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 		
 		return daoAuthenticationProvider;
-		
 	}
 
 	
@@ -47,10 +45,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		
 		auth.authenticationProvider(authenticationProvider());
-		
-		
 	}
 
 	@Override
@@ -65,7 +60,6 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 			.and().formLogin().loginPage("/signin")
 			.loginProcessingUrl("/dologin")
 			.defaultSuccessUrl("/user/")
-			//.failureUrl("/signin")
 			.and().csrf().disable();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -73,11 +67,4 @@ public class MyConfig extends WebSecurityConfigurerAdapter{
 		}
 	
 	}
-	
-	
-	
-	
-	
-	
-
 }

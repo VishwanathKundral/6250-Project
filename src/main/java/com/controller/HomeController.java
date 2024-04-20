@@ -30,10 +30,8 @@ public class HomeController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
-	
 	@Autowired
 	private UserrRepository userrRepository;
-	
 	
 		@RequestMapping("/")
 		public String home(Model model)
@@ -42,15 +40,12 @@ public class HomeController {
 			return "home";
 		}
 		
-		
-
 		@RequestMapping("/about")
 		public String about(Model model)
 		{
 			model.addAttribute("title","About - Smart Contact Manager");
 			return "about";
 		}
-		
 
 		@RequestMapping("/signin")
 		public String signin(Model model)
@@ -64,8 +59,6 @@ public class HomeController {
 		{
 			model.addAttribute("title","Signup - Smart Contact Manager");
 			model.addAttribute("userr",new Userr());
-			
-			
 			return "signup";
 		}
 		
@@ -78,26 +71,21 @@ public class HomeController {
 				if(!agreement)
 				{
 					logger.error("You have not agreed the Terms and Conditions");
-/*					System.out.println("You have not agreed the Terms and Conditions"); */
 					throw new Exception("You have not agreed the Terms and Conditions");
 				}
 				
 				if(r.hasErrors())
 				{
 					model.addAttribute("userr",userr);
-//					System.out.println(r);
 					return "signup";
 				}
-				
 				
 				if(userrRepository.getUserrByUserrName(userr.getUemail()) != null)
 				{
 					logger.error("Same Email Id is already registered. Try using different Email Id !");
-					/*System.out.println("Same Email Id is already registered. Try using different Email Id !");*/
 					throw new Exception("Same Email Id is already registered. Try using different Email Id !");
 				}
 					
-				
 				userr.setUrole("ROLE_USER");
 				userr.setUenabled(true);
 				userr.setUimage("default.png");
@@ -105,17 +93,14 @@ public class HomeController {
 				
 				logger.debug("Agreement " + agreement);
 				logger.debug("Userr " + userr);
-				/*System.out.println("Agreement " + agreement);
-				System.out.println("Userr " + userr);*/
 				
-				Userr result = this.userrRepository.save(userr);
+				this.userrRepository.save(userr);
 				
 				// it means it will return the data on the same page
 				model.addAttribute("userr",new Userr());
 				
 				session.setAttribute("message",new Message("Successfully registered !!","alert-success"));
 				return "signup";
-				
 				
 			}catch (Exception e)
 			{
@@ -125,9 +110,5 @@ public class HomeController {
 				return "signup";
 			}
 			
-			
 		}
-		
-		
-
 }

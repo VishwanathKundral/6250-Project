@@ -7,42 +7,26 @@
 <body>
 	<section>
 		<div class="container">
-		
 			<div class="card">
 				<div class="card-body my-5">
-					
 				<div class = "text-center">
 					<img style="height:200px" class="contact_profile_pic" th:src = "@{'/image/user.png'}" alt="profile photo">
 				</div>
-				
 				<h2 class="text-center mt-3 text-secondary font-italic font-weight-light">
 					Start Adding your contact
-				
 				</h2>
-				
 				<a th:href="@{/user/addcontact}" class="mt-4 btn btn-primary btn-block text-uppercase">Add New Contact</a>
-				
-				
 				</div>
 			</div>
-			
 		</div>
 		
-		<!-- active link -->
+	<!-- active link -->
     <script>
-			
 			$(document).ready(()=>{
-				
 				$("#dashboard").addClass("active");
-				
 			});
-			
-		
 		</script>
-    
     <!-- active link end -->
-		
-		
 	</section>
 </body>
 </html>

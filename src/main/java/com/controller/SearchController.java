@@ -23,20 +23,12 @@ public class SearchController {
 	@Autowired
 	private ContactRepository contRepo;
 	
-	
 	// search handler
 	@GetMapping("/search/{keyword}")
 	public ResponseEntity<?> search(@PathVariable("keyword") String keyword,Principal p)
 	{
-		
-		
-		Userr userr = userrRepo.getUserrByUserrName(p.getName());
-		
-	List<Contact> contacts = contRepo.findByUidAndKeyword(userr.getUid(),keyword);
-		
-		return ResponseEntity.ok(contacts);
-	
+		Userr userr = userrRepo.getUserrByUserrName(p.getName());		
+		List<Contact> contacts = contRepo.findByUidAndKeyword(userr.getUid(),keyword);		
+		return ResponseEntity.ok(contacts);	
 	}
-	
-
 }

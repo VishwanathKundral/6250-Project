@@ -6,28 +6,15 @@
 </head>
 <body>
 	<section>
-		
 		<div class="card mr-3 ml-3">
 			<div class="card-body">
 				<h1 class="text-center text-info mt-3">Update Contact</h1>
-				
 					<div class="container-fluid mt-1">
-						
 						<div class="row">
-							
 							<div class="col-md-8 offset-md-2">
-								
-								<form th:action="@{/user/processupdate}"
-									th:object="${contact}"
-									enctype="multipart/form-data"
-									method="POST"
-									class="mt-2"
-								>
-									
+								<form th:action="@{/user/processupdate}" th:object="${contact}" enctype="multipart/form-data" method="POST" class="mt-2" >
 									<!-- hidden field for cid -->
-									
 									<input type = "hidden" th:value="${contact.cid}" name="cid">
-									
 									<!-- hidden field end -->
 									
 									<!-- cname -->
@@ -38,9 +25,11 @@
 											</div>
 										</div>
 										<input th:value="${contact.cname}" type = "text" id="cname" name="cname" placeholder="Enter Name here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="William">help</span></div>
 									</div>
-									<!-- cname end -->
 									<br>
+									<!-- cname end -->
+									
 									<!-- cnickname -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -49,9 +38,11 @@
 											</div>
 										</div>
 										<input th:value="${contact.cnickname}" type = "text" id="cnickname" name="cnickname" placeholder="Enter Nick Name here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="Smith">help</span></div>
 									</div>
-									<!-- cnickname end -->
 									<br>
+									<!-- cnickname end -->
+									
 									<!-- cphone -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -59,10 +50,12 @@
 												<i class="fa fa-phone-alt"></i>
 											</div>
 										</div>
-										<input th:value="${contact.cphone}" pattern="^[+]{1}(?:[0-9\-\(\)\/\.]\s?){6, 15}[0-9]{1}$" type = "tel" id="cphone" name="cphone" class="form-control" required>
+										<input th:value="${contact.cphone}" pattern="^\+1 \([0-9]{3}\) [0-9]{3}-[0-9]{4}$" onkeypress="return onlyCellNumberKeys(event)" type = "text" id="cphone" name="cphone" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
 									</div>
-									<!-- cphone end -->
 									<br>
+									<!-- cphone end -->
+									
 									<!-- website -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -70,10 +63,12 @@
 												<i class="fas fa-globe"></i>
 											</div>
 										</div>
-										<input th:value="${contact.cwebsite}" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" type = "text" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
+										<input th:value="${contact.cwebsite}" pattern="^(https?:\/\/)?(w{3}\.)?[\w\d]*\.([a-zA-Z]*\.)?([a-zA-Z]*)?$" type = "url" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="http<s>://<www.>inse.com">help</span></div>
 									</div>
-									<!-- website end -->
 									<br>
+									<!-- website end -->
+									
 									<!-- address unit number -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -82,9 +77,11 @@
 											</div>
 										</div>
 										<input th:value="${contact.caddressunit}" onkeypress="return onlyNumberKey(event)" maxlength=5 type = "text" id="caddressunit" name="caddressunit" placeholder="Enter Unit of Residence here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">help</span></div>
 									</div>
-									<!-- address unite end -->
 									<br>
+									<!-- address unite end -->
+									
 									<!-- address civic number -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -93,9 +90,11 @@
 											</div>
 										</div>
 										<input th:value="${contact.caddresscivic}" type = "text" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">help</span></div>
 									</div>
-									<!-- address civic number end -->
 									<br>
+									<!-- address civic number end -->
+									
 									<!-- address street -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -104,9 +103,11 @@
 											</div>
 										</div>
 										<input th:value="${contact.caddressstreet}" type = "text" id="caddressstreet" name="caddressstreet" placeholder="Enter Address Street here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="Rue Mackay">help</span></div>
 									</div>
-									<!-- address street end -->
 									<br>
+									<!-- address street end -->
+									
 									<!-- address city -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -115,9 +116,12 @@
 											</div>
 										</div>
 										<input th:value="${contact.caddresscity}" type = "text" id="caddresscity" name="caddresscity" placeholder="Enter Address City here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="Montreal">help</span></div>
 									</div>
-									<!-- address city end -->
 									<br>
+									<!-- address city end -->
+									
+									<!-- Canadian provinces start -->									
 									<div><span>Current Province: </span><span th:text="${contact.ccanadaprovince}"></span></div>
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -127,24 +131,27 @@
 										</div>
 										
 										<select class="form-control" id="ccanadaprovince" name="ccanadaprovince" required>
-											<option disabled selected value> -- select Province -- </option>
-											<option value="AB">Alberta</option>
-											<option value="BC">British Columbia</option>
-											<option value="MB">Manitoba</option>
-											<option value="NB">New Brunswick</option>
-											<option value="NL">Newfoundland and Labrador</option>
-											<option value="NS">Nova Scotia</option>
-											<option value="ON">Ontario</option>
-											<option value="PE">Prince Edward Island</option>
-											<option value="QC">Quebec</option>
-											<option value="SK">Saskatchewan</option>
-											<option value="NT">Northwest Territories</option>
-											<option value="NU">Nunavut</option>
-											<option value="YT">Yukon</option>
+											<option disabled selected value=""> -- select Province -- </option>
+											<option value="AB"> Alberta </option>
+											<option value="BC"> British Columbia </option>
+											<option value="MB"> Manitoba </option>
+											<option value="NB"> New Brunswick </option>
+											<option value="NL"> Newfoundland and Labrador </option>
+											<option value="NS"> Nova Scotia </option>
+											<option value="ON"> Ontario </option>
+											<option value="PE"> Prince Edward Island </option>
+											<option value="QC"> Quebec </option>
+											<option value="SK"> Saskatchewan </option>
+											<option value="NT"> Northwest Territories </option>
+											<option value="NU"> Nunavut </option>
+											<option value="YT"> Yukon </option>
 										</select>
+										<div><span class="material-icons md-18" data-md-tooltip="Quebec">help</span></div>
 									</div>
 									<br>
-									<!-- Pastal code -->
+									<!-- Canadian provinces end -->
+									
+									<!-- Postal code -->
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
@@ -152,9 +159,11 @@
 											</div>
 										</div>
 										<input th:value="${contact.cpostalcode}" type = "text" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" id="cpostalcode" name="cpostalcode" placeholder="Enter Postal Code here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="H3G 2H7">help</span></div>
 									</div>
-									<!-- postal code end -->
 									<br>
+									<!-- postal code end -->
+									
 									<!-- cemail -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -162,10 +171,12 @@
 												<i class="fa fa-envelope"></i>
 											</div>
 										</div>
-										<input th:value="${contact.cemail}" type = "text" id="cemail" name="cemail" placeholder="Enter Email Id here" class="form-control" required>
+										<input th:value="${contact.cemail}" type = "email" id="cemail" name="cemail" placeholder="Enter Email Id here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="6250@inse.com">help</span></div>
 									</div>
-									<!-- cemail end -->
 									<br>
+									<!-- cemail end -->
+									
 									<!-- cwork -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -173,38 +184,37 @@
 												<i class="fa fa-briefcase"></i>
 											</div>
 										</div>
-										<input th:value="${contact.cwork}" type = "text" id="cwork" name="cwork" placeholder="Enter Work here" class="form-control" required>
+										<input th:value="${contact.cwork}" type = "text" id="cwork" name="cwork" placeholder="Enter Work here" class="form-control">
+										<div><span class="material-icons md-18" data-md-tooltip="University">help</span></div>
 									</div>
-									<!-- cwork end -->
 									<br>
+									<!-- cwork end -->
+									
 									<!-- cdescription -->
 									<div class="form-group mt-3">
 										<textarea th:text="${contact.cdescription}" name="cdescription" id="mytextarea" class="form-control" rows="8" placeholder="Enter Contact Description"></textarea>
 									</div>
-									<!-- cdescription end -->
 									<br>
+									<!-- cdescription end -->
+									
 									<!-- cimage -->
 									<div class="container text-center">
 										<img style="height:250px" class="img-fluid my_profile_pic" th:src = "@{'/image/'+${contact.cimage}}" alt=""> 
 									</div>
-									<p class="text-secondary">Choss new profile pic</p>
+									<p class="text-secondary">Choose new Avatar</p>
 									<div class="custom-file">
 									 	<input type = "file" name="cimage" >
 									</div>
-									<!-- cimage end -->
 									<br>
+									<!-- cimage end -->
+									
 									<div class="container text-center">
 										<button class="btn btn-outline-primary">Save Contact</button>
 									</div>
-								
 								</form>
-							
 							</div>
-						
 						</div>
-						
 					</div>
-				
 			</div>
 		</div>
 	</section>

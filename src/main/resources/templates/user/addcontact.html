@@ -5,25 +5,14 @@
 	<title>Document</title>
 </head>
 <body>
-	<section>
-		
+	<section>	
 		<div class="card mr-3 ml-3">
 			<div class="card-body">
 				<h1 class="text-center text-info">Add Contact</h1>
-				
 					<div class="container-fluid mt-1">
-						
 						<div class="row">
-							
 							<div class="col-md-8 offset-md-2">
-								
-								<form action="#"
-									th:object="${contact}"
-									enctype="multipart/form-data"
-									method="POST"
-									th:action="@{/user/processcontact}"
-									class="mt-2"
-								>
+								<form action="#" th:object="${contact}" enctype="multipart/form-data" method="POST" th:action="@{/user/processcontact}" class="mt-2">									
 									
 									<!-- cname -->
 									<div class="input-group">
@@ -33,10 +22,11 @@
 											</div>
 										</div>
 										<input type = "text" id="cname" name="cname" placeholder="Enter First Name here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="Tooltip content">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="William">help</span></div>
 									</div>
-									<!-- cname end -->
 									<br>
+									<!-- cname end -->
+									
 									<!-- cnickname -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -45,10 +35,11 @@
 											</div>
 										</div>
 										<input type = "text" id="cnickname" name="cnickname" placeholder="Enter Last Name here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="Tooltip content">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="Smith">help</span></div>
 									</div>
-									<!-- cnickname end -->
 									<br>
+									<!-- cnickname end -->
+									
 									<!-- cphone -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -56,11 +47,12 @@
 												<i class="fa fa-phone-alt"></i>
 											</div>
 										</div>
-										<input type = "tel" pattern="^[+]{1}(?:[0-9\-\(\)\/\.]\s?){6, 15}[0-9]{1}$" placeholder="Enter your phone number" id="cphone" name="cphone" class="form-control" required>
+										<input type = "text" pattern="^\+1 \([0-9]{3}\) [0-9]{3}-[0-9]{4}$" onkeypress="return onlyCellNumberKeys(event)" placeholder="Enter your phone number" id="cphone" name="cphone" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
 									</div>
-									<!-- cphone end -->
 									<br>
+									<!-- cphone end -->
+									
 									<!-- cemail -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -69,10 +61,11 @@
 											</div>
 										</div>
 										<input type = "email" id="cemail" name="cemail" placeholder="Enter Email Id here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="6250@inse.com">help</span></div>
 									</div>
-									<!-- cemail end -->
 									<br>
+									<!-- cemail end -->
+									
 									<!-- website -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -80,11 +73,12 @@
 												<i class="fas fa-globe"></i>
 											</div>
 										</div>
-										<input type = "url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<input type = "url" pattern="^(https?:\/\/)?(w{3}\.)?[\w\d]*\.([a-zA-Z]*\.)?([a-zA-Z]*)?$" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="http<s>://<www.>inse.com">help</span></div>
 									</div>
-									<!-- website end -->
 									<br>
+									<!-- website end -->
+									
 									<!-- address unit number -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -93,10 +87,11 @@
 											</div>
 										</div>
 										<input type = "text" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddressunit" name="caddressunit" placeholder="Enter Unit of Residence here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">help</span></div>
 									</div>
-									<!-- address unite end -->
 									<br>
+									<!-- address unite end -->
+									
 									<!-- address civic number -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -105,10 +100,11 @@
 											</div>
 										</div>
 										<input type = "text" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">help</span></div>
 									</div>
-									<!-- address civic number end -->
 									<br>
+									<!-- address civic number end -->
+									
 									<!-- address street -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -117,10 +113,11 @@
 											</div>
 										</div>
 										<input type = "text" id="caddressstreet" name="caddressstreet" placeholder="Enter Address Street here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="Rue Mackay">help</span></div>
 									</div>
-									<!-- address street end -->
 									<br>
+									<!-- address street end -->
+									
 									<!-- address city -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -129,10 +126,12 @@
 											</div>
 										</div>
 										<input type = "text" id="caddresscity" name="caddresscity" placeholder="Enter Address City here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="Montreal">help</span></div>
 									</div>
-									<!-- address city end -->
 									<br>
+									<!-- address city end -->
+									
+									<!-- Canadian province start -->
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
@@ -141,24 +140,26 @@
 										</div>
 										<select class="form-control"  id="ccanadaprovince" name="ccanadaprovince" required>
 											<option disabled selected value> -- select Province -- </option>
-											<option value="AB">Alberta</option>
-											<option value="BC">British Columbia</option>
-											<option value="MB">Manitoba</option>
-											<option value="NB">New Brunswick</option>
-											<option value="NL">Newfoundland and Labrador</option>
-											<option value="NS">Nova Scotia</option>
-											<option value="ON">Ontario</option>
-											<option value="PE">Prince Edward Island</option>
-											<option value="QC">Quebec</option>
-											<option value="SK">Saskatchewan</option>
-											<option value="NT">Northwest Territories</option>
-											<option value="NU">Nunavut</option>
-											<option value="YT">Yukon</option>
+											<option value="AB"> Alberta </option>
+											<option value="BC"> British Columbia </option>
+											<option value="MB"> Manitoba </option>
+											<option value="NB"> New Brunswick </option>
+											<option value="NL"> Newfoundland and Labrador </option>
+											<option value="NS"> Nova Scotia </option>
+											<option value="ON"> Ontario </option>
+											<option value="PE"> Prince Edward Island </option>
+											<option value="QC"> Quebec </option>
+											<option value="SK"> Saskatchewan </option>
+											<option value="NT"> Northwest Territories </option>
+											<option value="NU"> Nunavut </option>
+											<option value="YT"> Yukon </option>
 										</select>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="Quebec">help</span></div>
 									</div>
 									<br>
-									<!-- Pastal code -->
+									<!-- Canadian province end -->
+									
+									<!-- Postal code -->
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
@@ -166,10 +167,11 @@
 											</div>
 										</div>
 										<input type = "text" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" id="cpostalcode" name="cpostalcode" placeholder="Enter Postal Code here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="H3G 2H7">help</span></div>
 									</div>
-									<!-- postal code end -->
 									<br>
+									<!-- postal code end -->
+									
 									<!-- cwork -->
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -177,72 +179,43 @@
 												<i class="fa fa-briefcase"></i>
 											</div>
 										</div>
-										<input type = "text" id="cwork" name="cwork" placeholder="Enter Work here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<input type = "text" id="cwork" name="cwork" placeholder="Enter Work here" class="form-control">
+										<div><span class="material-icons md-18" data-md-tooltip="University">help</span></div>
 									</div>
-									<!-- cwork end -->
 									<br>
+									<!-- cwork end -->
+									
 									<!-- cdescription -->
 									<div class="form-group mt-3">
 										<textarea name="cdescription" id="mytextarea" class="form-control" rows="8" placeholder="Enter Contact Description"></textarea>
 									</div>
-									<!-- cdescription end -->
 									<br>
+									<!-- cdescription end -->
+									
 									<!-- cimage -->
 									<div class="custom-file">
 									 	<input type = "file" name="cimage">
 									</div>
-									<!-- cimage end -->
 									<br>
+									<!-- cimage end -->
+									
 									<div class="container text-center">
 										<button class="btn btn-outline-primary">Save Contact</button>
 									</div>
-								
 								</form>
-							
 							</div>
-						
 						</div>
-						
 					</div>
-				
 			</div>
 		</div>
-		<!-- Tiny MCE -->
-		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-      tinymce.init({
-        selector: '#mytextarea'
-      });
-    </script>
-    <!-- Tiny MCE End -->
     
-    <!-- active link -->
-    <script>
-			$(document).ready(()=>{
-				
-				$("#addcontact").addClass("active");
-				
-			});	
-			
-			function onlyNumberKey(evt) {
-				 
-	            // Only ASCII character in that range allowed
-	            let ASCIICode = (evt.which) ? evt.which : evt.keyCode
-	            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-	                return false;
-	            return true;
-	        }
-			
-			function process(event) {
-				 event.preventDefault();
-
-				 const phoneNumber = phoneInput.getNumber();
-
-				 info.style.display = "";
-				 info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
-				}
-	</script>
-    <!-- active link end -->
+	    <!-- active link -->
+	    <script>
+				$(document).ready(()=>{	
+					$("#addcontact").addClass("active");
+				});	
+		</script>
+	    <!-- active link end -->
 	</section>
 </body>
 </html>

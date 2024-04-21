@@ -21,7 +21,7 @@
 												<i class="fa far fa-id-card"></i>
 											</div>
 										</div>
-										<input type = "text" id="cname" name="cname" placeholder="Enter First Name here" class="form-control" required>
+										<input type = "text" pattern="[A-Za-z]{1,15}" maxlength="15" id="cname" name="cname" placeholder="Enter First Name here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="William">help</span></div>
 									</div>
 									<br>
@@ -34,7 +34,7 @@
 												<i class="fas fa-address-book"></i>
 											</div>
 										</div>
-										<input type = "text" id="cnickname" name="cnickname" placeholder="Enter Last Name here" class="form-control" required>
+										<input type = "text" pattern="[A-Za-z]{1,15}" maxlength="15" id="cnickname" name="cnickname" placeholder="Enter Last Name here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="Smith">help</span></div>
 									</div>
 									<br>
@@ -73,11 +73,10 @@
 												<i class="fas fa-globe"></i>
 											</div>
 										</div>
-										<input type = "url" pattern="^(https?:\/\/)?(w{3}\.)?[\w\d]*\.([a-zA-Z]*\.)?([a-zA-Z]*)?$" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
+										<input type = "url" pattern="^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="http<s>://<www.>inse.com">help</span></div>
 									</div>
 									<br>
-									<!-- website end -->
 									
 									<!-- address unit number -->
 									<div class="input-group">
@@ -99,7 +98,7 @@
 												<i class="fas fa-building"></i>
 											</div>
 										</div>
-										<input type = "text" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
+										<input type = "text" onkeypress="return onlyNumberKey(event)" pattern="[^0]+" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">help</span></div>
 									</div>
 									<br>
@@ -112,7 +111,7 @@
 												<i class="fas fa-street-view"></i>
 											</div>
 										</div>
-										<input type = "text" id="caddressstreet" name="caddressstreet" placeholder="Enter Address Street here" class="form-control" required>
+										<input type = "text" pattern="^(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" id="caddressstreet" name="caddressstreet" placeholder="Enter Address Street here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="Rue Mackay">help</span></div>
 									</div>
 									<br>
@@ -125,7 +124,7 @@
 												<i class="fas fa-city"></i>
 											</div>
 										</div>
-										<input type = "text" id="caddresscity" name="caddresscity" placeholder="Enter Address City here" class="form-control" required>
+										<input type = "text" pattern="^(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" id="caddresscity" name="caddresscity" placeholder="Enter Address City here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="Montreal">help</span></div>
 									</div>
 									<br>
@@ -193,6 +192,7 @@
 									<!-- cdescription end -->
 									
 									<!-- cimage -->
+									<p class="text-secondary">Choose your Avatar</p>
 									<div class="custom-file">
 									 	<input type = "file" name="cimage">
 									</div>

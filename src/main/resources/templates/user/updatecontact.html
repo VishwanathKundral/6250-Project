@@ -24,7 +24,7 @@
 												<i class="fa far fa-id-card"></i>
 											</div>
 										</div>
-										<input th:value="${contact.cname}" type = "text" id="cname" name="cname" placeholder="Enter Name here" class="form-control" required>
+										<input th:value="${contact.cname}" type = "text" pattern="[A-Za-z]{1,15}" maxlength="15" id="cname" name="cname" placeholder="Enter Name here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="William">help</span></div>
 									</div>
 									<br>
@@ -37,7 +37,7 @@
 												<i class="fas fa-address-book"></i>
 											</div>
 										</div>
-										<input th:value="${contact.cnickname}" type = "text" id="cnickname" name="cnickname" placeholder="Enter Nick Name here" class="form-control" required>
+										<input th:value="${contact.cnickname}" type = "text" pattern="[A-Za-z]{1,15}" maxlength="15" id="cnickname" name="cnickname" placeholder="Enter Nick Name here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="Smith">help</span></div>
 									</div>
 									<br>
@@ -63,7 +63,7 @@
 												<i class="fas fa-globe"></i>
 											</div>
 										</div>
-										<input th:value="${contact.cwebsite}" pattern="^(https?:\/\/)?(w{3}\.)?[\w\d]*\.([a-zA-Z]*\.)?([a-zA-Z]*)?$" type = "url" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
+										<input th:value="${contact.cwebsite}" pattern="^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$" type = "url" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="http<s>://<www.>inse.com">help</span></div>
 									</div>
 									<br>
@@ -89,7 +89,7 @@
 												<i class="fas fa-building"></i>
 											</div>
 										</div>
-										<input th:value="${contact.caddresscivic}" type = "text" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
+										<input th:value="${contact.caddresscivic}" type = "text" pattern="[^0]+" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">help</span></div>
 									</div>
 									<br>
@@ -102,7 +102,7 @@
 												<i class="fas fa-street-view"></i>
 											</div>
 										</div>
-										<input th:value="${contact.caddressstreet}" type = "text" id="caddressstreet" name="caddressstreet" placeholder="Enter Address Street here" class="form-control" required>
+										<input th:value="${contact.caddressstreet}" pattern="^(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" type = "text" id="caddressstreet" name="caddressstreet" placeholder="Enter Address Street here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="Rue Mackay">help</span></div>
 									</div>
 									<br>
@@ -115,7 +115,7 @@
 												<i class="fas fa-city"></i>
 											</div>
 										</div>
-										<input th:value="${contact.caddresscity}" type = "text" id="caddresscity" name="caddresscity" placeholder="Enter Address City here" class="form-control" required>
+										<input th:value="${contact.caddresscity}" pattern="^(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" type = "text" id="caddresscity" name="caddresscity" placeholder="Enter Address City here" class="form-control" required>
 										<div><span class="material-icons md-18" data-md-tooltip="Montreal">help</span></div>
 									</div>
 									<br>

@@ -93,7 +93,7 @@ public class UserrController {
 			if(file.isEmpty())
 			{
 				//if the file is empty then try our message
-				System.out.println("File is empty");
+				logger.debug("File is empty");
 				contact.setCimage("contact.png");
 			
 			}
@@ -117,7 +117,7 @@ public class UserrController {
 			}catch(Exception e)
 			{
 				logger.error(e.getLocalizedMessage());
-				session.setAttribute("message",new Message("Somethin went wrong !!","danger"));
+				session.setAttribute("message",new Message("Something went wrong !!","danger"));
 			}		
 		return "user/addcontact";
 	}
@@ -224,10 +224,10 @@ public class UserrController {
 				if(oldcont.getCimage() != null)
 				{	
 					try {
-					File imagefile = new ClassPathResource("static/image").getFile();
-				Path path = Paths.get(imagefile.getAbsolutePath() + File.separator+oldcont.getCimage());				
-				Files.delete(path);					
-				logger.debug("old image delete successfully...");				
+						File imagefile = new ClassPathResource("static/image").getFile();
+						Path path = Paths.get(imagefile.getAbsolutePath() + File.separator+oldcont.getCimage());				
+						Files.delete(path);					
+						logger.debug("old image delete successfully...");				
 					}catch (Exception e) {
 						logger.error(e.getLocalizedMessage());
 						session.setAttribute("message",new Message("Profile pic is already deleted !","danger"));
@@ -235,10 +235,10 @@ public class UserrController {
 				}
 				//======= add new photo
 				contact.setCimage(file.getOriginalFilename());				
-				 File saveFile = new ClassPathResource("static/image").getFile();					
-					Path path2 = Paths.get(saveFile.getAbsolutePath()+ File.separator+file.getOriginalFilename());					 
-					 Files.copy(file.getInputStream(), path2, StandardCopyOption.REPLACE_EXISTING);					 
-					 logger.debug("new image uploaded successfully...");				
+				File saveFile = new ClassPathResource("static/image").getFile();					
+				Path path2 = Paths.get(saveFile.getAbsolutePath()+ File.separator+file.getOriginalFilename());					 
+				Files.copy(file.getInputStream(), path2, StandardCopyOption.REPLACE_EXISTING);					 
+				logger.debug("new image uploaded successfully...");				
 			}
 			else {
 				contact.setCimage(oldcont.getCimage());				

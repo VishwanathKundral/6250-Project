@@ -25,7 +25,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.cname}" type = "text" pattern="[A-Za-z]{1,15}" maxlength="15" id="cname" name="cname" placeholder="Enter Name here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="William">help</span></div>
+										<div><span class="material-icons md-18 mat-tooltip-panel-right" data-md-tooltip="William">info</span></div>
 									</div>
 									<br>
 									<!-- cname end -->
@@ -38,7 +38,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.cnickname}" type = "text" pattern="[A-Za-z]{1,15}" maxlength="15" id="cnickname" name="cnickname" placeholder="Enter Nick Name here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="Smith">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="Smith">info</span></div>
 									</div>
 									<br>
 									<!-- cnickname end -->
@@ -51,7 +51,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.cphone}" pattern="^\+1 \([0-9]{3}\) [0-9]{3}-[0-9]{4}$" onkeypress="return onlyCellNumberKeys(event)" type = "text" id="cphone" name="cphone" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="+1 (xxx) xxx-xxxx">info</span></div>
 									</div>
 									<br>
 									<!-- cphone end -->
@@ -63,8 +63,8 @@
 												<i class="fas fa-globe"></i>
 											</div>
 										</div>
-										<input th:value="${contact.cwebsite}" pattern="^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$" type = "url" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="http<s>://<www.>inse.com">help</span></div>
+										<input th:value="${contact.cwebsite}" pattern="^((https?):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$" type = "url" id="cwebsite" name="cwebsite" placeholder="Enter Website here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="http<s>://<www.>inse.com">info</span></div>
 									</div>
 									<br>
 									<!-- website end -->
@@ -77,7 +77,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.caddressunit}" onkeypress="return onlyNumberKey(event)" maxlength=5 type = "text" id="caddressunit" name="caddressunit" placeholder="Enter Unit of Residence here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">info</span></div>
 									</div>
 									<br>
 									<!-- address unite end -->
@@ -89,8 +89,8 @@
 												<i class="fas fa-building"></i>
 											</div>
 										</div>
-										<input th:value="${contact.caddresscivic}" type = "text" pattern="[^0]+" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">help</span></div>
+										<input th:value="${contact.caddresscivic}" type = "text" pattern="^[1-9]\d*" onkeypress="return onlyNumberKey(event)" maxlength=5 id="caddresscivic" name="caddresscivic" placeholder="Enter Address Civic Number here" class="form-control" required>
+										<div><span class="material-icons md-18" data-md-tooltip="xxxxx">info</span></div>
 									</div>
 									<br>
 									<!-- address civic number end -->
@@ -103,7 +103,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.caddressstreet}" pattern="^(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" type = "text" id="caddressstreet" name="caddressstreet" placeholder="Enter Address Street here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="Rue Mackay">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="Rue Mackay">info</span></div>
 									</div>
 									<br>
 									<!-- address street end -->
@@ -116,7 +116,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.caddresscity}" pattern="^(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" type = "text" id="caddresscity" name="caddresscity" placeholder="Enter Address City here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="Montreal">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="Montreal">info</span></div>
 									</div>
 									<br>
 									<!-- address city end -->
@@ -146,7 +146,7 @@
 											<option value="NU"> Nunavut </option>
 											<option value="YT"> Yukon </option>
 										</select>
-										<div><span class="material-icons md-18" data-md-tooltip="Quebec">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="Quebec">info</span></div>
 									</div>
 									<br>
 									<!-- Canadian provinces end -->
@@ -159,7 +159,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.cpostalcode}" type = "text" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" id="cpostalcode" name="cpostalcode" placeholder="Enter Postal Code here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="H3G 2H7">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="H3G 2H7">info</span></div>
 									</div>
 									<br>
 									<!-- postal code end -->
@@ -172,7 +172,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.cemail}" type = "email" id="cemail" name="cemail" placeholder="Enter Email Id here" class="form-control" required>
-										<div><span class="material-icons md-18" data-md-tooltip="6250@inse.com">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="6250@inse.com">info</span></div>
 									</div>
 									<br>
 									<!-- cemail end -->
@@ -185,7 +185,7 @@
 											</div>
 										</div>
 										<input th:value="${contact.cwork}" type = "text" id="cwork" name="cwork" placeholder="Enter Work here" class="form-control">
-										<div><span class="material-icons md-18" data-md-tooltip="University">help</span></div>
+										<div><span class="material-icons md-18" data-md-tooltip="University">info</span></div>
 									</div>
 									<br>
 									<!-- cwork end -->
